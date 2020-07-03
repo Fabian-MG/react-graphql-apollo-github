@@ -10,12 +10,15 @@ import App from "./App";
 import "./style.css";
 
 const GITHUB_BASE_URL = "https://api.github.com/graphql";
+const cache = new InMemoryCache();
 const httpLink = new HttpLink({
   uri: GITHUB_BASE_URL,
   headers: {
     authorization: `Bearer ${process.env.GITHUB_PERSONAL_ACCESS_TOKEN}`,
   },
 });
+
+
 
 ReactDOM.render(<App />, document.getElementById("root"));
 
